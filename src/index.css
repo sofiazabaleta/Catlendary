@@ -74,3 +74,11 @@ footer {
 }
 
 /*notes page*/
+
+.btn {
+  background-color: #b80e0e;
+}
+
+.note-item {
+  margin-bottom: 1rem;
+}

@@ -2,11 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NoteItem = ({ note }) => {
+  const { id, details, title, createdAt, updatedAt } = note;
+
+  console.log(updatedAt);
+
   return (
-    <Link to={`/notes/${note.id}`} className="note">
-      <h4>{note.title}</h4>
-      <p>{note.date}</p>
-    </Link>
+    <div className="note-item">
+      <Link to={`/notes/${id}`} className="note">
+        <h4>{title}</h4>
+      </Link>
+      <p>{details}</p>
+      <p>CreatedAt: {createdAt}</p>
+      <p>UpdatedAt: {updatedAt}</p>
+      <small>max chupalo</small>
+    </div>
   );
 };
 

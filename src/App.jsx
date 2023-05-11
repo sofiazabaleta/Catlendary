@@ -9,8 +9,18 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import CreateNote from "./pages/Createnote";
 import EditNote from "./pages/EditNote";
+import randomNotes from "./randomNotes";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
   return (
     <main className="main">
       <div>
@@ -22,9 +32,15 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/catlendary" element={<Catlendary />} />
             {/* Notes Routes */}
-            <Route path="/notes" element={<Notes />} />
-            <Route path="/create-note" element={<CreateNote />} />
-            <Route path="/notes/:id" element={<EditNote />} />
+            <Route path="/notes" element={<Notes notes={notes} />} />
+            <Route
+              path="/create-note"
+              element={<CreateNote setNotes={setNotes} />}
+            />
+            <Route
+              path="/notes/:id"
+              element={<EditNote notes={notes} setNotes={setNotes} />}
+            />
             {/* Reminders Routes */}
             <Route path="/reminders" element={<Reminders />} />
             {/* Todos Routes */}
