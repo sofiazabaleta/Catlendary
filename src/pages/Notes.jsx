@@ -28,6 +28,7 @@ const Notes = ({ notes }) => {
           {!showSearch && <h2>My Notes</h2>}
           {showSearch && (
             <input
+              className="search-input-notes"
               type="text"
               value={text}
               onChange={(e) => {
@@ -53,7 +54,7 @@ const Notes = ({ notes }) => {
           {filteredNotes.map((note) => (
             <NoteItem key={note.id} note={note} />
           ))}
-          <Link to="/create-note" className="btn add__btn">
+          <Link to="/create-note" className="btn add_btn">
             <BsPlusLg />
           </Link>
         </div>

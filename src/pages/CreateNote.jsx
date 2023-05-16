@@ -31,16 +31,17 @@ const CreateNote = (props) => {
 
   return (
     <section>
-      <header className="create-note__header">
-        <Link to="/" className="btn">
+      <header className="-note_createheader">
+        <Link to="/notes" className="btn">
           <IoMdArrowBack />
         </Link>
-        <button className="btn lg primary" onClick={handleSubmit}>
+        <button className="btn-lg-primary" onClick={handleSubmit}>
           Save
         </button>
       </header>
-      <form className="create-note__form" onSubmit={handleSubmit}>
+      <form className="create-note_form" onSubmit={handleSubmit}>
         <input
+          className="notes-title-create-note"
           type="text"
           placeholder="Title"
           value={title}
@@ -48,8 +49,9 @@ const CreateNote = (props) => {
           autoFocus
         />
         <textarea
+          className="textarea-notes-crt-nts"
           rows="28"
-          placeholder="Note details..."
+          placeholder="Your note..."
           onChange={(e) => setDetails(e.target.value)}
         ></textarea>
       </form>

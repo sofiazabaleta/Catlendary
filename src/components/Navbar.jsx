@@ -3,7 +3,7 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
+      <Link to="/" className="site-title clean-link">
         Catlendary
       </Link>
       <ul>
@@ -23,7 +23,7 @@ function Customlink({ to, children, ...props }) {
 
   return (
     <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
+      <Link to={to} {...props} className="clean-link">
         {children}
       </Link>
     </li>

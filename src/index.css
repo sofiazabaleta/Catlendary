@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Sofia&family=Sofia+Sans:ital,wght@0,300;0,400;1,200&family=Urbanist&display=swap");
 
+:root {
+  --main-rouge: #b02626;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +14,7 @@
 
 body {
   font-family: "Urbanist";
-  background-color: #ffe2e2;
+  background-color: #fff7e7;
 }
 
 .main {
@@ -23,6 +27,16 @@ body {
 .container {
   margin: 1rem;
   text-align: center;
+}
+
+a {
+  color: var(--main-rouge);
+  text-decoration: none;
+}
+
+a:hover:not(.clean-link) {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 footer {
@@ -70,15 +84,131 @@ footer {
 }
 
 .nav li:hover {
-  background-color: #ddb7b7;
+  background-color: #ffd2d2;
 }
 
 /*notes page*/
 
 .btn {
-  background-color: #b80e0e;
+  background-color: #eb9494;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  align-items: center;
+  border: 0ch;
+  color: #961212;
+  margin: 0.5rem;
+  font-size: x-large;
 }
 
 .note-item {
+  padding: 0.75rem;
   margin-bottom: 1rem;
+  box-shadow: rgba(108, 30, 0, 0.4) 0px 2px 4px,
+    rgba(97, 20, 1, 0.3) 0px 7px 13px -3px,
+    rgba(110, 21, 1, 0.2) 0px -3px 0px inset;
+  font-family: "Sofia Sans";
+  font-weight: lighter;
+  background-color: #e9a7a7;
+  color: #ffe2e2;
+  font-size: 1rem;
+  transition: scale 500ms ease-in-out;
+  width: 15rem;
+  height: 15rem;
+  display: grid;
+}
+
+.note-item:hover {
+  scale: 1.025;
+}
+
+.note-item h4 {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #961212;
+}
+
+.notes_header {
+  font-family: "Sofia";
+  color: #d84e4e;
+  font-size: 1.5rem;
+}
+
+.add_btn {
+  background-color: transparent;
+  color: #f68c8c;
+  font-size: xx-large;
+}
+
+.add_btn:hover {
+  color: #aa3e3e;
+  background-color: transparent;
+}
+.search-input-notes {
+  background-color: transparent;
+  border-color: #eb9494;
+  border-style: hidden;
+  border-bottom: 2px solid #bf5959;
+  font-family: "Sofia Sans";
+  color: rgb(146, 9, 9);
+  font-size: 1.5rem;
+}
+
+input::placeholder {
+  opacity: 0.5;
+  color: #bf5959;
+}
+.btn-lg-primary {
+  background-color: #eb9494;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 10%;
+  font-size: large;
+  border: 0ch;
+  color: #961212;
+  margin: 0.5rem;
+  font-family: "Urbanist";
+  text-align: center;
+  font-size: 1.5rem;
+}
+.create-note_form {
+  background-color: transparent;
+}
+.notes-title-create-note {
+  background-color: transparent;
+  border-color: #eb9494;
+  border-style: hidden;
+  border-bottom: 2px solid #bf5959;
+  font-family: "Sofia Sans";
+  color: rgb(146, 9, 9);
+  font-size: 2rem;
+  margin: 1rem;
+}
+.textarea-notes-crt-nts {
+  background-color: #f0d7d7;
+  border-color: #f0d7d7;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 37.375rem;
+  height: 43.438rem;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea::placeholder {
+  opacity: 0.5;
+  color: #bf5959;
+  font-family: "Sofia Sans";
+}
+.btn-delete-trshicon {
+  background-color: #eb9494;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  align-items: center;
+  border: 0ch;
+  color: #961212;
+  margin: 0.5rem;
+  font-size: x-large;
 }

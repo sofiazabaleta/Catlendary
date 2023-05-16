@@ -4,18 +4,17 @@ import { Link } from "react-router-dom";
 const NoteItem = ({ note }) => {
   const { id, details, title, createdAt, updatedAt } = note;
 
-  console.log(updatedAt);
-
   return (
-    <div className="note-item">
-      <Link to={`/notes/${id}`} className="note">
+    <Link to={`/notes/${id}`} className="clean-link">
+      <div className="note-item">
         <h4>{title}</h4>
-      </Link>
-      <p>{details}</p>
-      <p>CreatedAt: {createdAt}</p>
-      <p>UpdatedAt: {updatedAt}</p>
-      <small>max chupalo</small>
-    </div>
+        <p className="details">
+          {details.length > 75 ? `${details.substring(0, 75)}...` : details}
+        </p>
+        <p>CreatedAt: {createdAt}</p>
+        <p>UpdatedAt: {updatedAt}</p>
+      </div>
+    </Link>
   );
 };
 

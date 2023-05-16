@@ -37,25 +37,26 @@ const EditNote = ({ notes, setNotes }) => {
       const newNotes = notes.filter((item) => item.id != id);
 
       setNotes(newNotes);
-      navigate("/");
+      navigate("/notes");
     }
   };
 
   return (
     <section>
       <header className="create-note__header">
-        <Link to="/" className="btn">
+        <Link to="/notes" className="btn">
           <IoMdArrowBack />
         </Link>
-        <button className="btn lg primary" onClick={handleForm}>
+        <button className="btn-lg-primary" onClick={handleForm}>
           Save
         </button>
-        <button className="btn danger" onClick={handleDelete}>
+        <button className="btn-delete-trshicon" onClick={handleDelete}>
           <RiDeleteBin6Line />
         </button>
       </header>
-      <form className="create-note__form" onSubmit={handleForm}>
+      <form className="create-note_form" onSubmit={handleForm}>
         <input
+          className="notes-title-create-note"
           type="text"
           placeholder="Title"
           value={title}
@@ -63,6 +64,7 @@ const EditNote = ({ notes, setNotes }) => {
           autoFocus
         />
         <textarea
+          className="textarea-notes-crt-nts"
           rows="28"
           placeholder="Note details..."
           value={details}
