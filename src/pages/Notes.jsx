@@ -39,12 +39,17 @@ const Notes = ({ notes }) => {
               placeholder="Keyword"
             />
           )}
-          <button
-            className="btn"
-            onClick={() => setShowsearch((prevState) => !prevState)}
-          >
-            {showSearch ? <MdClose /> : <BsFillSearchHeartFill />}
-          </button>
+          <div className="btn-group">
+            <button
+              className="btn"
+              onClick={() => setShowsearch((prevState) => !prevState)}
+            >
+              {showSearch ? <MdClose /> : <BsFillSearchHeartFill />}
+            </button>
+            <Link to="/create-note" className="btn add_btn">
+              <BsPlusLg />
+            </Link>
+          </div>
         </header>
         <div className="notes_container">
           {filteredNotes.length == 0 && (
@@ -54,9 +59,6 @@ const Notes = ({ notes }) => {
           {filteredNotes.map((note) => (
             <NoteItem key={note.id} note={note} />
           ))}
-          <Link to="/create-note" className="btn add_btn">
-            <BsPlusLg />
-          </Link>
         </div>
       </section>
     </div>

@@ -4,6 +4,7 @@
 
 :root {
   --main-rouge: #b02626;
+  --main-pink: #e2a1a1;
 }
 
 * {
@@ -60,6 +61,7 @@ footer {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  font-family: "Urbanist";
 }
 
 .nav ul {
@@ -93,14 +95,26 @@ footer {
   background-color: #eb9494;
   width: 2.5rem;
   height: 2.5rem;
+  padding: 1.35rem;
   border-radius: 100%;
   align-items: center;
   border: 0ch;
   color: #961212;
   margin: 0.5rem;
   font-size: x-large;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
 }
 
+.btn:hover svg {
+  scale: 1.1;
+}
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .note-item {
   padding: 0.75rem;
   margin-bottom: 1rem;
@@ -113,7 +127,6 @@ footer {
   color: #ffe2e2;
   font-size: 1rem;
   transition: scale 500ms ease-in-out;
-  width: 15rem;
   height: 15rem;
   display: grid;
 }
@@ -161,7 +174,7 @@ input::placeholder {
 }
 .btn-lg-primary {
   background-color: #eb9494;
-  width: 4rem;
+  width: 5rem;
   height: 2rem;
   border-radius: 10%;
   font-size: large;
@@ -174,6 +187,11 @@ input::placeholder {
 }
 .create-note_form {
   background-color: transparent;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  display: grid;
+  align-content: center;
 }
 .notes-title-create-note {
   background-color: transparent;
@@ -184,6 +202,8 @@ input::placeholder {
   color: rgb(146, 9, 9);
   font-size: 2rem;
   margin: 1rem;
+  display: -ms-inline-grid;
+  justify-content: center;
 }
 .textarea-notes-crt-nts {
   background-color: #f0d7d7;
@@ -191,9 +211,9 @@ input::placeholder {
   font-size: 2rem;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   width: 37.375rem;
-  height: 43.438rem;
+  height: 20rem;
   display: flex;
-  flex-direction: column;
+  color: #c42020;
 }
 
 textarea::placeholder {
@@ -211,4 +231,103 @@ textarea::placeholder {
   color: #961212;
   margin: 0.5rem;
   font-size: x-large;
+}
+
+.notes_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1em;
+}
+
+.back-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+}
+
+.back-btn:hover {
+  background-color: var(--main-pink);
+}
+/* todo and habits */
+
+.open-modal-btn-todo {
+  background-color: #eb9494;
+  font-family: "Sofia Sans";
+  color: #891010;
+  font-size: 1rem;
+}
+.open-modal-btn-habit {
+  background-color: #f2e146;
+  font-family: "Sofia Sans";
+  color: #961212;
+  font-size: 1rem;
+}
+.title-todosandhabits {
+  font-family: "Sofia";
+  color: #bf5959;
+}
+
+.open-modal-btn-todo:hover {
+  color: #c42020;
+  background-color: #eb9494;
+}
+
+.open-modal-btn-habit:hover {
+  color: #ec2a2a;
+  background-color: #fcef7e;
+}
+.sumit-btn-todo {
+  font-family: "Urbanist";
+  color: #9b1d1d;
+  background-color: #e9a7a7;
+}
+.sumit-btn-habit {
+  font-family: "Urbanist";
+  color: #9b1d1d;
+  background-color: #e9a7a7;
+}
+
+.sumit-btn-habit:hover {
+  color: #c42020;
+  background-color: #eb9494;
+}
+
+.sumit-btn-todo:hover {
+  color: #c42020;
+  background-color: #eb9494;
+}
+.textarea-todo-add-todo {
+  background-color: #f1d7d7;
+  border-color: #f0d7d7;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  /* width: 25rem; */
+  /* height: 2rem; */
+  /* display: flex; */
+  color: #c42020;
+  margin-bottom: 1rem;
+}
+.textarea-habit-add-habit {
+  background-color: #f1d7d7;
+  border-color: #f0d7d7;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 25rem;
+  height: 2rem;
+  display: flex;
+  color: #c42020;
+}
+
+.add-todo-in-modal {
+  font-family: "Urbanist";
+  color: #b84d4d;
+}
+
+.add-habit-in-modal {
+  font-family: "Urbanist";
+  color: #de5151;
 }

@@ -3,6 +3,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/formatDate";
+import BackButton from "../components/BackButton";
 
 const CreateNote = (props) => {
   const { setNotes } = props;
@@ -32,12 +33,12 @@ const CreateNote = (props) => {
   return (
     <section>
       <header className="-note_createheader">
-        <Link to="/notes" className="btn">
-          <IoMdArrowBack />
-        </Link>
-        <button className="btn-lg-primary" onClick={handleSubmit}>
-          Save
-        </button>
+        <div className="btn-group">
+          <BackButton to={"/notes"} />
+          <button className="btn-lg-primary" onClick={handleSubmit}>
+            Save
+          </button>
+        </div>
       </header>
       <form className="create-note_form" onSubmit={handleSubmit}>
         <input

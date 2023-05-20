@@ -3,6 +3,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 import { formatDate } from "../utils/formatDate";
+import BackButton from "../components/BackButton";
 
 const EditNote = ({ notes, setNotes }) => {
   const { id } = useParams();
@@ -44,9 +45,7 @@ const EditNote = ({ notes, setNotes }) => {
   return (
     <section>
       <header className="create-note__header">
-        <Link to="/notes" className="btn">
-          <IoMdArrowBack />
-        </Link>
+        <BackButton to={"/notes"} />
         <button className="btn-lg-primary" onClick={handleForm}>
           Save
         </button>
