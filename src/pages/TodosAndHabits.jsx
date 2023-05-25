@@ -11,18 +11,17 @@ import { useState } from "react";
 
 //? explain (john)
 //todo add filters
-//todo save todos and habits to localstorage
 //todo add unique id to items
 //!fix todos and habits list (should return item component) and change currkjgtentItem to useRef
 
-const TodosAndHabits = () => {
+const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
   const [openedTodo, { open: openTodo, close: closeTodo }] =
     useDisclosure(false);
   const [openedHabit, { open: openHabit, close: closeHabit }] =
     useDisclosure(false);
 
   // temporally saved todos and habits array
-  const [todosAndHabits, setTodosAndHabits] = useState([]);
+  //! const [todosAndHabits, setTodosAndHabits] = useState([]);
 
   // saves current value of the current item content (works for both todo and habit)
   const [currentItem, setCurrentItem] = useState("");

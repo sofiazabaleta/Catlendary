@@ -21,6 +21,14 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
+  const [todosAndHabits, setTodosAndHabits] = useState(
+    JSON.parse(localStorage.getItem("todosAndHabits")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("todosAndHabits", JSON.stringify(todosAndHabits));
+  }, [todosAndHabits]);
+
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <main className="main">
@@ -45,7 +53,15 @@ function App() {
               {/* Reminders Routes */}
               <Route path="/reminders" element={<Reminders />} />
               {/* Todos Routes */}
-              <Route path="/todo-list" element={<TodosAndHabits />} />
+              <Route
+                path="/todo-list"
+                element={
+                  <TodosAndHabits
+                    todosAndHabits={todosAndHabits}
+                    setTodosAndHabits={setTodosAndHabits}
+                  />
+                }
+              />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </div>
