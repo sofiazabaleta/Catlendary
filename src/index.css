@@ -331,3 +331,27 @@ textarea::placeholder {
   font-family: "Urbanist";
   color: #de5151;
 }
+
+.btn-delete-trshicon-todo {
+  background-color: #e85e5e;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  align-items: center;
+  border: 0ch;
+  color: #fefefe;
+  margin: 0.5rem;
+  font-size: x-large;
+}
+
+.check-todos-and-habits {
+  background-color: #99d385;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  align-items: center;
+  border: 0ch;
+  color: #ffffff;
+  margin: 0.5rem;
+  font-size: x-large;
+}
