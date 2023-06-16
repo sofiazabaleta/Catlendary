@@ -1,63 +1,77 @@
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button, Group, Checkbox } from "@mantine/core";
+import {
+  Modal,
+  Button,
+  Group,
+  Checkbox,
+  Box,
+  useMantineTheme,
+} from "@mantine/core";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { SiCheckio } from "react-icons/si";
 
-//controlcheckbox
-
 const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
   const [openedTodo, { open: openTodo, close: closeTodo }] =
     useDisclosure(false);
+
   const [openedHabit, { open: openHabit, close: closeHabit }] =
     useDisclosure(false);
 
   // saves current value of the current item content (works for both todo and habit)
   const [currentItem, setCurrentItem] = useState("");
 
-  //handles todo submition
-  const handleTodoSubmit = (e) => {
+  //handles new item submition
+  const handleSubmit = (e, type) => {
     e.preventDefault();
     //sets new todo into the todosAndHabits array (line: 13)
-
-    const newTodo = {
+    const newItem = {
       id: uuid(),
       content: currentItem,
-      type: "todo",
+      type,
       check: false,
     };
 
-    setTodosAndHabits((prev) => [...prev, newTodo]);
+    setTodosAndHabits((prev) => [...prev, newItem]);
 
     // resets currentItem to an empty string
     setCurrentItem("");
-    closeTodo();
-  };
-
-  const handleDelete = (id) => {
-    if (window.confirm("you really want to delete this note?")) {
-      const filteredTodosAndHabits = todosAndHabits.filter(
-        (item) => item.id != id
-      );
-      setTodosAndHabits(filteredTodosAndHabits);
+    if (type === "todo") {
+      closeTodo();
+    } else {
+      closeHabit();
     }
   };
 
-  //handles habitß submition
-  const handleHabitSubmit = (e) => {
-    e.preventDefault();
-    //sets new habit into the todosAndHabits array (line: 13)
-    const newHabit = {
-      id: uuid(),
-      content: currentItem,
-      type: "habit",
-      check: false,
-    };
+  // handle item delete
+  const handleDelete = (id) => {
+    if (window.confirm("you really want to delete this note?")) {
+      // delete
+      setTodosAndHabits((prev) => {
+        const filteredTodosAndHabits = prev.filter((item) => {
+          return item.id !== id;
+        });
+        return filteredTodosAndHabits;
+      });
+    } else {
+      // don't delete
+      return false;
+    }
+  };
 
-    // resets currentItem to an empty string
-    setCurrentItem("");
-    closeHabit();
+  //handle item check
+  const handleToggleCheck = (itemId) => {
+    setTodosAndHabits((previousTodosAndHabits) => {
+      const updatedTodosAndHabits = previousTodosAndHabits.map((item) => {
+        if (item.id === itemId) {
+          return { ...item, check: !item.check };
+        } else {
+          return item;
+        }
+      });
+      return updatedTodosAndHabits;
+    });
   };
 
   return (
@@ -69,7 +83,10 @@ const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
         onClose={closeTodo}
         title="Add To-do"
       >
-        <form className="create-todo-form" onSubmit={handleTodoSubmit}>
+        <form
+          className="create-todo-form"
+          onSubmit={(e) => handleSubmit(e, "todo")}
+        >
           <input
             data-autofocus
             className="textarea-todo-add-todo"
@@ -88,7 +105,10 @@ const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
         onClose={closeHabit}
         title="Add Habit"
       >
-        <form className="create-habit-form" onSubmit={handleHabitSubmit}>
+        <form
+          className="create-habit-form"
+          onSubmit={(e) => handleSubmit(e, "habit")}
+        >
           <input
             data-autofocus
             className="textarea-habit-add-habit"
@@ -113,37 +133,47 @@ const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
       <TodosAndHabitsList
         todosAndHabits={todosAndHabits}
         onDelete={handleDelete}
+        onCheck={handleToggleCheck}
       />
     </div>
   );
 };
 
 // Component for rendering todos / habits
+const TodosAndHabitsList = ({ todosAndHabits, onDelete, onCheck, onClick }) => {
+  return todosAndHabits.map((item) => (
+    <Item
+      key={item.id}
+      item={item}
+      onDelete={onDelete}
+      onCheck={onCheck}
+      onClick={onClick}
+    />
+  ));
+};
 
-const TodosAndHabitsList = ({ todosAndHabits, onDelete, onClick }) => {
-  return todosAndHabits.map((item, id) => (
+const Item = ({ item, onDelete, onCheck }) => {
+  const theme = useMantineTheme();
+  const { id, type, content, check } = item;
+  return (
     <div
-      key={id}
-      style={{
-        color: item.type === "todo" ? "purple" : "yellow",
-      }}
+      className="todos-and-habit-item"
+      style={{ backgroundColor: type === "todo" ? "#f6b7b7" : "#FFEC99" }}
     >
-      <p>{item.content}</p>
-
-      <Checkbox icon={SiCheckio} color={"pink"} defaultChecked />
-
-      {/* <button className="check-todos-and-habits">
-        <SiCheckio />
-      </button> */}
-
-      <button
-        className="btn-delete-trshicon-todo"
-        onClick={() => onDelete(item.id)}
-      >
+      <p>{content}</p>
+      <Checkbox
+        color={"custom-green.5"}
+        className="checkbox-todos-habits"
+        icon={SiCheckio}
+        checked={check}
+        onChange={() => onCheck(id)}
+        size={"2rem"}
+      />
+      <button className="btn-delete-trshicon-todo" onClick={() => onDelete(id)}>
         <RiDeleteBin6Line />
       </button>
     </div>
-  ));
+  );
 };
 
 export default TodosAndHabits;

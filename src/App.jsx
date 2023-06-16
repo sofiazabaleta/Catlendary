@@ -30,7 +30,25 @@ function App() {
   }, [todosAndHabits]);
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colors: {
+          "custom-green": [
+            "#F8FCF9",
+            "#D7EFE0",
+            "#B4E9C8",
+            "#9CD8B2",
+            "#89C6A0",
+            "#79B48F",
+            "#6DA281",
+            "#649075",
+            "#5E7D6A",
+          ],
+        },
+      }}
+    >
       <main className="main">
         <div>
           <Navbar />

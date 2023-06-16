@@ -15,7 +15,7 @@
 
 body {
   font-family: "Urbanist";
-  background-color: #fff7e7;
+  background-color: #fae1e1;
 }
 
 .main {
@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #fae1e1;
 }
 
 .container {
@@ -255,20 +256,22 @@ textarea::placeholder {
 /* todo and habits */
 
 .open-modal-btn-todo {
-  background-color: #eb9494;
+  background-color: #f6b7b7;
   font-family: "Sofia Sans";
-  color: #891010;
+  color: #5b0404;
   font-size: 1rem;
+  box-shadow: rgba(102, 41, 0, 0.18) 0px 2px 4px;
 }
 .open-modal-btn-habit {
-  background-color: #f2e146;
+  background-color: #fee573;
   font-family: "Sofia Sans";
-  color: #961212;
+  color: #5b0404;
   font-size: 1rem;
+  box-shadow: rgba(102, 41, 0, 0.18) 0px 2px 4px;
 }
 .title-todosandhabits {
   font-family: "Sofia";
-  color: #bf5959;
+  color: #d84e4e;
 }
 
 .open-modal-btn-todo:hover {
@@ -278,17 +281,19 @@ textarea::placeholder {
 
 .open-modal-btn-habit:hover {
   color: #ec2a2a;
-  background-color: #fcef7e;
+  background-color: #ffec99;
 }
 .sumit-btn-todo {
   font-family: "Urbanist";
   color: #9b1d1d;
   background-color: #e9a7a7;
+  margin: 0.5rem;
 }
 .sumit-btn-habit {
   font-family: "Urbanist";
   color: #9b1d1d;
   background-color: #e9a7a7;
+  margin: 0.5rem;
 }
 
 .sumit-btn-habit:hover {
@@ -302,56 +307,58 @@ textarea::placeholder {
 }
 .textarea-todo-add-todo {
   background-color: #f1d7d7;
-  border-color: #f0d7d7;
+  border-color: #f0d7d700;
   font-size: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  /* width: 25rem; */
-  /* height: 2rem; */
-  /* display: flex; */
   color: #c42020;
   margin-bottom: 1rem;
+  box-shadow: rgba(90, 43, 2, 0.25) 0px 1px 1px,
+    rgba(89, 46, 0, 0.13) 0px 0px 1px 1px;
 }
 .textarea-habit-add-habit {
   background-color: #f1d7d7;
-  border-color: #f0d7d7;
+  border-color: #f0d7d700;
   font-size: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  width: 25rem;
-  height: 2rem;
-  display: flex;
   color: #c42020;
+  margin-bottom: 1rem;
+  box-shadow: rgba(90, 43, 2, 0.25) 0px 1px 1px,
+    rgba(89, 46, 0, 0.13) 0px 0px 1px 1px;
 }
 
 .add-todo-in-modal {
   font-family: "Urbanist";
   color: #b84d4d;
+  padding: 1rem;
 }
 
 .add-habit-in-modal {
   font-family: "Urbanist";
   color: #de5151;
+  padding: 1rem;
 }
 
 .btn-delete-trshicon-todo {
   background-color: #e85e5e;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 100%;
-  align-items: center;
+  border-radius: 20%;
   border: 0ch;
   color: #fefefe;
   margin: 0.5rem;
   font-size: x-large;
 }
 
-.check-todos-and-habits {
-  background-color: #99d385;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 100%;
-  align-items: center;
-  border: 0ch;
-  color: #ffffff;
-  margin: 0.5rem;
-  font-size: x-large;
+.todos-and-habit-item {
+  background-color: #e8cbcb;
+  box-shadow: rgba(103, 36, 0, 0.09) 0px 2px 1px,
+    rgba(103, 36, 0, 0.09) 0px 4px 2px, rgba(103, 36, 0, 0.09) 0px 8px 4px,
+    rgba(103, 36, 0, 0.09) 0px 16px 8px, rgba(103, 36, 0, 0.09) 0px 32px 16px;
+  border-radius: 1rem;
+  margin: 2rem;
+  grid-template-rows: repeat(auto-fit, minmax(4rem, 1fr));
+  font-size: 2rem;
+  font-family: "Sofia Sans";
+  padding: 0.3rem;
+  color: #5b0404;
+  width: 50rem;
+  align-self: flex-end;
 }
