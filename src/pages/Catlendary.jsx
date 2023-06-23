@@ -5,7 +5,10 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { enUS } from "date-fns/locale";
 import { useState } from "react";
-import { Stack } from "@mantine/core";
+import { ActionIcon, Modal, Stack, Text } from "@mantine/core";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { v4 as uuid } from "uuid";
+import { useDisclosure } from "@mantine/hooks";
 
 const locales = {
   "en-US": enUS,
@@ -19,29 +22,61 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const events = [
-  {
-    title: "play league of legends",
-    start: new Date(),
-    end: new Date(),
-  },
-];
+//todo save events on local storage
+//todo add reminders and homepage
+//TODO VERY IMPORTANT ADD CATS SVGS
 
 export default function Catlendary() {
+  const [opened, { open, close }] = useDisclosure(false);
+
+  const [events, setEvents] = useState([
+    {
+      id: uuid(),
+      title: "play league of legends",
+      start: new Date(),
+      end: new Date(),
+    },
+  ]);
   const [newEvent, setNewEvent] = useState({
+    id: uuid(),
     title: "",
     start: new Date(),
     end: new Date(),
   });
-
-  const [allEvents, setAllEvents] = useState(events);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   function handleAddEvent() {
-    setAllEvents([...allEvents, newEvent]);
+    setEvents([...events, newEvent]);
+    setNewEvent({
+      id: uuid(),
+      title: "",
+      start: new Date(),
+      end: new Date(),
+    });
   }
+
+  function handleSelectEvent(evt) {
+    setSelectedEvent(evt);
+    open();
+  }
+  const handleEventDelete = () => {
+    if (window.confirm("you really want to delete this event?")) {
+      setEvents((prev) =>
+        prev.filter((event) => event.id !== selectedEvent.id)
+      );
+      close();
+      setSelectedEvent(null);
+    }
+  };
 
   return (
     <>
+      <EventModal
+        event={selectedEvent}
+        opened={opened}
+        close={close}
+        onDelete={handleEventDelete}
+      />
       <h1>Catlendary</h1>
       <h2>Add New Event</h2>
       <div style={{ position: "relative", zIndex: 100 }}>
@@ -74,11 +109,28 @@ export default function Catlendary() {
       </div>
       <Calendar
         localizer={localizer}
-        events={allEvents}
+        events={events}
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500, margin: "58px" }}
+        onSelectEvent={handleSelectEvent}
       />
     </>
   );
 }
+
+const EventModal = ({ event, opened, close, onDelete }) => {
+  if (!event) return null;
+  return (
+    <>
+      <Modal opened={opened} onClose={close}>
+        <Text>Title: {event.title}</Text>
+        <Text>Start Date: {event.start.toDateString()}</Text>
+        <Text>End Date: {event.end.toDateString()}</Text>
+        <ActionIcon color={"red"} onClick={onDelete}>
+          <RiDeleteBin6Line size={"1.2rem"} />
+        </ActionIcon>
+      </Modal>
+    </>
+  );
+};

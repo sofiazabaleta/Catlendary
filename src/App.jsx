@@ -29,6 +29,14 @@ function App() {
     localStorage.setItem("todosAndHabits", JSON.stringify(todosAndHabits));
   }, [todosAndHabits]);
 
+  // const [events, setAllEvents] = useState(
+  //   JSON.parse(localStorage.getItem("events")) || []
+  // );
+
+  // useEffect(() => {
+  //   localStorage.setItem("todosAndHabits", JSON.stringify(events));
+  // }, [events]);
+
   return (
     <MantineProvider
       withGlobalStyles
