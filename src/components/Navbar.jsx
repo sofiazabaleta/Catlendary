@@ -7,11 +7,9 @@ export default function Navbar() {
         Catlendary
       </Link>
       <ul>
-        <Customlink to="/login">Login</Customlink>
         <Customlink to="/catlendary">Catlendary</Customlink>
         <Customlink to="/notes">Notes</Customlink>
-        <Customlink to="/reminders">Reminders</Customlink>
-        <Customlink to="/todo-list">To-do list</Customlink>
+        <Customlink to="/todo-list">To-do list & Habits</Customlink>
       </ul>
     </nav>
   );

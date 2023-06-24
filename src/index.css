@@ -364,3 +364,23 @@ textarea::placeholder {
 }
 
 /* Catlendary */
+
+/* home page */
+.title-home-page {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  color: #b80e0e;
+}
+
+.details-homepage {
+  font-family: "Urbanist";
+  font-size: 2rem;
+  color: #de5151;
+}
+
+/*page not found */
+.page-not-found {
+  font-family: "urbanist";
+  font-size: 6rem;
+  color: #b00000;
+}

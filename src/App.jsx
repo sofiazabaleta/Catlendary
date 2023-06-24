@@ -2,10 +2,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Catlendary from "./pages/Catlendary";
 import Notes from "./pages/Notes";
-import Reminders from "./pages/Reminders";
 import TodosAndHabits from "./pages/TodosAndHabits";
 import { Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import CreateNote from "./pages/Createnote";
 import EditNote from "./pages/EditNote";
@@ -29,13 +27,13 @@ function App() {
     localStorage.setItem("todosAndHabits", JSON.stringify(todosAndHabits));
   }, [todosAndHabits]);
 
-  // const [events, setAllEvents] = useState(
-  //   JSON.parse(localStorage.getItem("events")) || []
-  // );
+  const [events, setEvents] = useState(
+    JSON.parse(localStorage.getItem("events")) || []
+  );
 
-  // useEffect(() => {
-  //   localStorage.setItem("todosAndHabits", JSON.stringify(events));
-  // }, [events]);
+  useEffect(() => {
+    localStorage.setItem("events", JSON.stringify(events));
+  }, [events]);
 
   return (
     <MantineProvider
@@ -64,8 +62,11 @@ function App() {
             <Routes>
               {/* Global Routes */}
               <Route path="/" element={<Home />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/catlendary" element={<Catlendary />} />
+              {/* Calendary Routes */}
+              <Route
+                path="/catlendary"
+                element={<Catlendary events={events} setEvents={setEvents} />}
+              />
               {/* Notes Routes */}
               <Route path="/notes" element={<Notes notes={notes} />} />
               <Route
@@ -76,8 +77,6 @@ function App() {
                 path="/notes/:id"
                 element={<EditNote notes={notes} setNotes={setNotes} />}
               />
-              {/* Reminders Routes */}
-              <Route path="/reminders" element={<Reminders />} />
               {/* Todos Routes */}
               <Route
                 path="/todo-list"

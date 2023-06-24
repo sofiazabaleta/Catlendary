@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BsFillSearchHeartFill, BsPlusLg } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
-import randomNotes from "../randomNotes";
+
 import { Link } from "react-router-dom";
 import NoteItem from "../components/NoteItem";
 

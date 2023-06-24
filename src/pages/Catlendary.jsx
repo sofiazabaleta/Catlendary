@@ -23,20 +23,11 @@ const localizer = dateFnsLocalizer({
 });
 
 //todo save events on local storage
-//todo add reminders and homepage
 //TODO VERY IMPORTANT ADD CATS SVGS
 
-export default function Catlendary() {
+export default function Catlendary({ events, setEvents }) {
   const [opened, { open, close }] = useDisclosure(false);
 
-  const [events, setEvents] = useState([
-    {
-      id: uuid(),
-      title: "play league of legends",
-      start: new Date(),
-      end: new Date(),
-    },
-  ]);
   const [newEvent, setNewEvent] = useState({
     id: uuid(),
     title: "",
@@ -68,7 +59,6 @@ export default function Catlendary() {
       setSelectedEvent(null);
     }
   };
-
   return (
     <>
       <EventModal
@@ -77,8 +67,8 @@ export default function Catlendary() {
         close={close}
         onDelete={handleEventDelete}
       />
-      <h1>Catlendary</h1>
-      <h2>Add New Event</h2>
+      <h1 classname="title-catlendary">Catlendary</h1>
+      <h2 classname="add-new-event-catlendary">Add New Event</h2>
       <div style={{ position: "relative", zIndex: 100 }}>
         <input
           type="text"
@@ -125,8 +115,8 @@ const EventModal = ({ event, opened, close, onDelete }) => {
     <>
       <Modal opened={opened} onClose={close}>
         <Text>Title: {event.title}</Text>
-        <Text>Start Date: {event.start.toDateString()}</Text>
-        <Text>End Date: {event.end.toDateString()}</Text>
+        <Text>Start Date: {new Date(event.start).toDateString()}</Text>
+        <Text>End Date: {new Date(event.end).toDateString()}</Text>
         <ActionIcon color={"red"} onClick={onDelete}>
           <RiDeleteBin6Line size={"1.2rem"} />
         </ActionIcon>
