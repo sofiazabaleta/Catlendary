@@ -5,6 +5,7 @@ export default function Home() {
       <h2 className="details-homepage">
         A place where you can organize and plan your day in a cute way.
       </h2>
+      <h3 className="cat"></h3>
     </>
   );
 }

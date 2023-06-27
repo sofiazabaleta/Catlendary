@@ -22,9 +22,6 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-//todo save events on local storage
-//TODO VERY IMPORTANT ADD CATS SVGS
-
 export default function Catlendary({ events, setEvents }) {
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -71,6 +68,7 @@ export default function Catlendary({ events, setEvents }) {
       <h2 classname="add-new-event-catlendary">Add New Event</h2>
       <div style={{ position: "relative", zIndex: 100 }}>
         <input
+          className="add-title-event"
           type="text"
           placeholder="Add title"
           style={{ width: "20%", marginRight: "10px" }}
@@ -81,6 +79,7 @@ export default function Catlendary({ events, setEvents }) {
         />
         <div>
           <DatePicker
+            className="start-date-picker"
             placeholderText="Start Date"
             selected={newEvent.start}
             onChange={(date) =>
@@ -88,12 +87,17 @@ export default function Catlendary({ events, setEvents }) {
             }
           />
           <DatePicker
+            className="end-date-picker"
             placeholderText="End Date"
             selected={newEvent.end}
             onChange={(date) => setNewEvent((prev) => ({ ...prev, end: date }))}
           />
         </div>
-        <button style={{ marginTop: "10px" }} onClick={handleAddEvent}>
+        <button
+          className="add-event-btn"
+          style={{ marginTop: "10px" }}
+          onClick={handleAddEvent}
+        >
           Add Event
         </button>
       </div>
