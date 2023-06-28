@@ -64,13 +64,12 @@ export default function Catlendary({ events, setEvents }) {
         close={close}
         onDelete={handleEventDelete}
       />
-      <h1 classname="title-catlendary">Catlendary</h1>
-      <h2 classname="add-new-event-catlendary">Add New Event</h2>
+
       <div style={{ position: "relative", zIndex: 100 }}>
         <input
           className="add-title-event"
           type="text"
-          placeholder="Add title"
+          placeholder="Add Event"
           style={{ width: "20%", marginRight: "10px" }}
           value={newEvent.title}
           onChange={(e) =>
@@ -118,11 +117,19 @@ const EventModal = ({ event, opened, close, onDelete }) => {
   return (
     <>
       <Modal opened={opened} onClose={close}>
-        <Text>Title: {event.title}</Text>
-        <Text>Start Date: {new Date(event.start).toDateString()}</Text>
-        <Text>End Date: {new Date(event.end).toDateString()}</Text>
-        <ActionIcon color={"red"} onClick={onDelete}>
-          <RiDeleteBin6Line size={"1.2rem"} />
+        <Text className="title-event-selected-modal">Title: {event.title}</Text>
+        <Text className="start-date-selected-modal">
+          Start Date: {new Date(event.start).toDateString()}
+        </Text>
+        <Text className="end-date-selected-modal">
+          End Date: {new Date(event.end).toDateString()}
+        </Text>
+        <ActionIcon
+          classname="trsh-icon-delete-event"
+          color={"red"}
+          onClick={onDelete}
+        >
+          <RiDeleteBin6Line size={"4rem"} />
         </ActionIcon>
       </Modal>
     </>

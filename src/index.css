@@ -374,15 +374,6 @@ textarea::placeholder {
   font-size: 1.5rem;
 }
 
-.title-catlendary {
-  font-family: "Sofia";
-  color: #d84e4e;
-}
-.add-new-event-catlendary {
-  font-family: "Sofia";
-  color: #d84e4e;
-}
-
 .start-date-picker {
   background-color: transparent;
   border-color: #eb9494;
@@ -412,6 +403,21 @@ textarea::placeholder {
   border: transparent;
   padding: 0.5rem;
 }
+.title-event-selected-modal {
+  font-family: "Urbanist";
+  color: #d54b55;
+  font-size: 2rem;
+}
+.start-date-selected-modal {
+  font-family: "Urbanist";
+  color: #d54b55;
+  font-size: 2rem;
+}
+.end-date-selected-modal {
+  font-family: "Urbanist";
+  color: #d54b55;
+  font-size: 2rem;
+}
 
 /* home page */
 .title-home-page {
@@ -424,206 +430,6 @@ textarea::placeholder {
   font-family: "Urbanist";
   font-size: 2rem;
   color: #de5151;
-}
-
-/* literally the cat */
-/* Ellipse 29 */
-.cat {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  /* Ellipse 29 */
-
-  position: absolute;
-  left: -1.59%;
-  right: 3.17%;
-  top: 5%;
-  bottom: 7.5%;
-
-  background: #e0c3c3;
-
-  /* Polygon 1 */
-
-  position: absolute;
-  left: -25.33%;
-  right: 70.8%;
-  top: 10.78%;
-  bottom: 31.73%;
-
-  background: #e0c3c3;
-  border-radius: 5px;
-  transform: matrix(0.86, -0.51, 0.56, 0.83, 0, 0);
-
-  /* Polygon 2 */
-
-  position: absolute;
-  left: 76.54%;
-  right: -31.12%;
-  top: -20.81%;
-  bottom: 58.03%;
-
-  background: #e0c3c3;
-  border-radius: 5px;
-  transform: matrix(0.86, 0.51, -0.56, 0.83, 0, 0);
-
-  /* Ellipse 30 */
-
-  position: absolute;
-  left: 26.23%;
-  right: 65.57%;
-  top: 39.29%;
-  bottom: 51.79%;
-
-  background: #9e380d;
-
-  /* Ellipse 31 */
-
-  box-sizing: border-box;
-
-  position: absolute;
-  left: 62.3%;
-  right: 29.51%;
-  top: 39.29%;
-  bottom: 51.79%;
-
-  background: #9e380d;
-  border: 1px solid #9e380d;
-
-  /* Polygon 3 */
-
-  position: absolute;
-  left: 42.86%;
-  right: 45.24%;
-  top: 59.17%;
-  bottom: 28.33%;
-
-  background: #9e380d;
-  border-radius: 1px;
-  transform: matrix(1, 0, 0, -1, 0, 0);
-
-  /* Ellipse 32 */
-
-  position: absolute;
-  left: 67.21%;
-  right: 24.59%;
-  top: 48.21%;
-  bottom: 44.64%;
-
-  background: #ecb2b2;
-
-  /* Ellipse 33 */
-
-  position: absolute;
-  left: 21.31%;
-  right: 70.49%;
-  top: 48.21%;
-  bottom: 44.64%;
-
-  background: #ecb2b2;
-
-  /* Line 4 */
-
-  position: absolute;
-  left: 77.05%;
-  right: 6.47%;
-  top: 55.36%;
-  bottom: 44.64%;
-
-  border: 1px solid #9e380d;
-  transform: matrix(0.99, -0.1, 0.1, 1, 0, 0);
-
-  /* Line 5 */
-
-  position: absolute;
-  left: 77.05%;
-  right: 6.47%;
-  top: 62.5%;
-  bottom: 37.5%;
-
-  border: 1px solid #9e380d;
-  transform: matrix(0.99, 0.1, -0.1, 1, 0, 0);
-
-  /* Line 6 */
-
-  position: absolute;
-  left: 4.92%;
-  right: 78.6%;
-  top: 55.36%;
-  bottom: 44.64%;
-
-  border: 1px solid #9e380d;
-  transform: matrix(0.99, 0.1, -0.1, 1, 0, 0);
-
-  /* Line 7 */
-
-  position: absolute;
-  left: 4.92%;
-  right: 78.6%;
-  top: 66.07%;
-  bottom: 33.93%;
-
-  border: 1px solid #9e380d;
-  transform: matrix(0.99, -0.1, 0.1, 1, 0, 0);
-
-  /* Polygon 4 */
-
-  position: absolute;
-  left: 82.71%;
-  right: 0.64%;
-  top: 1.67%;
-  bottom: 78.98%;
-
-  background: #d65d5d;
-  border-radius: 1px;
-  transform: matrix(0.77, 0.64, -0.61, 0.79, 0, 0);
-
-  /* Polygon 5 */
-
-  position: absolute;
-  left: 0%;
-  right: 83.35%;
-  top: 11.48%;
-  bottom: 69.17%;
-
-  background: #d65d5d;
-  border-radius: 1px;
-  transform: matrix(0.75, -0.66, 0.63, 0.78, 0, 0);
-
-  /* Line 8 */
-
-  position: absolute;
-  left: 47.54%;
-  right: 33.75%;
-  top: 5.36%;
-  bottom: 94.64%;
-
-  border: 1px solid #9e380d;
-  transform: rotate(90deg);
-
-  /* Line 9 */
-
-  position: absolute;
-  left: 42.62%;
-  right: 48.87%;
-  top: 5.36%;
-  bottom: 94.64%;
-
-  border: 1px solid #9e380d;
-  transform: rotate(90deg);
-
-  /* Line 10 */
-
-  position: absolute;
-  left: 52.46%;
-  right: 39.04%;
-  top: 5.36%;
-  bottom: 94.64%;
-
-  border: 1px solid #9e380d;
-  transform: rotate(90deg);
 }
 
 /*page not found */
