@@ -11,6 +11,7 @@ const NoteItem = ({ note }) => {
         <p className="details">
           {details.length > 75 ? `${details.substring(0, 75)}...` : details}
         </p>
+
         <p>CreatedAt: {createdAt}</p>
         <p>UpdatedAt: {updatedAt}</p>
       </div>

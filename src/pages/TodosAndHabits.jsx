@@ -6,11 +6,13 @@ import {
   Checkbox,
   Box,
   useMantineTheme,
+  Center,
 } from "@mantine/core";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { SiCheckio } from "react-icons/si";
+import MiniCat from "../assets/minicat.svg";
 
 const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
   const [openedTodo, { open: openTodo, close: closeTodo }] =
@@ -82,6 +84,14 @@ const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
         opened={openedTodo}
         onClose={closeTodo}
         title="Add To-do"
+        styles={{
+          header: {
+            backgroundColor: "pink",
+          },
+          content: {
+            backgroundColor: "pink",
+          },
+        }}
       >
         <form
           className="create-todo-form"
@@ -104,6 +114,14 @@ const TodosAndHabits = ({ todosAndHabits, setTodosAndHabits }) => {
         opened={openedHabit}
         onClose={closeHabit}
         title="Add Habit"
+        styles={{
+          header: {
+            backgroundColor: "pink",
+          },
+          content: {
+            backgroundColor: "pink",
+          },
+        }}
       >
         <form
           className="create-habit-form"
@@ -156,22 +174,30 @@ const Item = ({ item, onDelete, onCheck }) => {
   const theme = useMantineTheme();
   const { id, type, content, check } = item;
   return (
-    <div
-      className="todos-and-habit-item"
-      style={{ backgroundColor: type === "todo" ? "#f6b7b7" : "#FFEC99" }}
-    >
-      <p>{content}</p>
-      <Checkbox
-        color={"custom-green.5"}
-        className="checkbox-todos-habits"
-        icon={SiCheckio}
-        checked={check}
-        onChange={() => onCheck(id)}
-        size={"2rem"}
-      />
-      <button className="btn-delete-trshicon-todo" onClick={() => onDelete(id)}>
-        <RiDeleteBin6Line />
-      </button>
+    <div>
+      <img src={MiniCat} alt="cat" width={50} position={Center} />
+
+      <div
+        className="todos-and-habit-item"
+        style={{ backgroundColor: type === "todo" ? "#f6b7b7" : "#FFEC99" }}
+      >
+        <p>{content}</p>
+        <Checkbox
+          color={"pink"}
+          className="checkbox-todos-habits"
+          icon={SiCheckio}
+          checked={check}
+          onChange={() => onCheck(id)}
+          size={"2rem"}
+        />
+
+        <button
+          className="btn-delete-trshicon-todo"
+          onClick={() => onDelete(id)}
+        >
+          <RiDeleteBin6Line />
+        </button>
+      </div>
     </div>
   );
 };

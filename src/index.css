@@ -306,7 +306,7 @@ textarea::placeholder {
   background-color: #eb9494;
 }
 .textarea-todo-add-todo {
-  background-color: #f1d7d7;
+  background-color: #ffebf0;
   border-color: #f0d7d700;
   font-size: 2rem;
   color: #c42020;
@@ -315,7 +315,7 @@ textarea::placeholder {
     rgba(89, 46, 0, 0.13) 0px 0px 1px 1px;
 }
 .textarea-habit-add-habit {
-  background-color: #f1d7d7;
+  background-color: #ffebf0;
   border-color: #f0d7d700;
   font-size: 2rem;
   color: #c42020;
@@ -326,13 +326,13 @@ textarea::placeholder {
 
 .add-todo-in-modal {
   font-family: "Urbanist";
-  color: #b84d4d;
+  color: #fabcc5;
   padding: 1rem;
 }
 
 .add-habit-in-modal {
   font-family: "Urbanist";
-  color: #de5151;
+  color: #ff8d8d;
   padding: 1rem;
 }
 
@@ -405,18 +405,25 @@ textarea::placeholder {
 }
 .title-event-selected-modal {
   font-family: "Urbanist";
-  color: #d54b55;
+  color: #82161d;
   font-size: 2rem;
 }
 .start-date-selected-modal {
   font-family: "Urbanist";
-  color: #d54b55;
+  color: #82161d;
   font-size: 2rem;
 }
 .end-date-selected-modal {
   font-family: "Urbanist";
-  color: #d54b55;
+  color: #82161d;
   font-size: 2rem;
+}
+
+.rbc-timeslot-group {
+  background-color: #fae1e1;
+}
+.rbc-timeslot-group.thrid {
+  background-color: red;
 }
 
 /* home page */

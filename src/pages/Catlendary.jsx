@@ -63,6 +63,7 @@ export default function Catlendary({ events, setEvents }) {
         opened={opened}
         close={close}
         onDelete={handleEventDelete}
+        style={{ color: "pink" }}
       />
 
       <div style={{ position: "relative", zIndex: 100 }}>
@@ -105,7 +106,7 @@ export default function Catlendary({ events, setEvents }) {
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: "58px" }}
+        style={{ height: 500, margin: "58px", color: "maroon" }}
         onSelectEvent={handleSelectEvent}
       />
     </>
@@ -116,7 +117,18 @@ const EventModal = ({ event, opened, close, onDelete }) => {
   if (!event) return null;
   return (
     <>
-      <Modal opened={opened} onClose={close}>
+      <Modal
+        opened={opened}
+        onClose={close}
+        styles={{
+          header: {
+            backgroundColor: "pink",
+          },
+          content: {
+            backgroundColor: "pink",
+          },
+        }}
+      >
         <Text className="title-event-selected-modal">Title: {event.title}</Text>
         <Text className="start-date-selected-modal">
           Start Date: {new Date(event.start).toDateString()}
